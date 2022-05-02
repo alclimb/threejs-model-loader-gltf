@@ -8,10 +8,11 @@ const myCanvas = document.querySelector<HTMLCanvasElement>('#myCanvas')!;
 // ライブラリの読み込み
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 // モデルを読み込み
-const model = await loadGLTF(`/Duck.glb`);
+const loader = new GLTFLoader();
+const model = await loader.loadAsync(`/Duck.glb`);
 model.scene.scale.set(0.25, 0.25, 0.25);
 
 // 座表軸
@@ -58,15 +59,3 @@ renderer.setAnimationLoop(() => {
   // 描画する
   renderer.render(scene, camera);
 });
-
-/**
- * GLTFファイルを読み込む
- * @param filename モデルファイルのURLを指定する
- * @returns GLTFオブジェクトを返す
- */
-function loadGLTF(filename: string) {
-  return new Promise<GLTF>((resolve, reason) => {
-    const loader = new GLTFLoader();
-    loader.load(filename, resolve, undefined, reason);
-  });
-}
