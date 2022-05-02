@@ -20,7 +20,7 @@ This is a repository created to explain the following article.
 # 依存関係のパッケージをインストール
 $ npm i
 
-# 開発環境で実行 (http://loadlhost:3000/)
+# 開発環境で実行 (http://localhost:3000/)
 $ npm run dev
 
 # 本番環境向けにビルド
