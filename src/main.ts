@@ -38,7 +38,7 @@ camera.position.set(1, 1, 1);
 camera.lookAt(scene.position);
 
 // レンダラーの初期化
-const renderer = new THREE.WebGLRenderer({ canvas: myCanvas });
+const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: myCanvas });
 renderer.setClearColor(0xffffff, 1.0); // 背景色
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(myCanvas.offsetWidth, myCanvas.offsetHeight);
